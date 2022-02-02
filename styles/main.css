@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  padding-top: 1rem;
+  width: 100vw;
+  height: 100vh;
+
+  font-family: sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+  background-color: hsl(0, 5%, 15%);
+}
+
+.form {
+  margin: 1rem;
+  color: white;
+  width: max-content;
+}
+
+.btn {
+  display: inline-flex;
+  padding: 0.35rem 0.7rem;
+  background-color: hsl(0, 0%, 25%);
+  color: inherit;
+  outline: none;
+  border: none;
+  text-align: center;
+  transition: background-color 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
+}
+
+.btn:focus,
+.btn:hover {
+  background-color: hsl(0, 0%, 30%);
+  box-shadow: 0 0 0.3rem hsl(0, 0%, 30%);
+}
+
+input {
+  outline: none;
+  transition: box-shadow 0.125s ease-in-out;
+}
+
+input[type="number"] {
+  width: 6ch;
+}
+
+input:focus,
+input:hover {
+  outline: 1px solid gray;
+}

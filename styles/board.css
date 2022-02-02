@@ -1,0 +1,36 @@
+.board {
+  --board-dim: 8;
+
+  height: 70vmin;
+  width: 70vmin;
+
+  display: grid;
+  grid-template-columns: repeat(var(--board-dim), 1fr);
+  grid-template-rows: repeat(var(--board-dim), 1fr);
+}
+
+.square {
+  display: grid;
+  place-items: center;
+}
+
+.square.white {
+  background: linear-gradient(45deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 70%) 100%);
+}
+
+.square.black {
+  background: linear-gradient(45deg, hsl(0, 0%, 15%) 0%, hsl(0, 0%, 40%) 100%);
+}
+
+.piece {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.white-queen {
+  background-image: url("../images/pieces/wQ.svg");
+}
+.black-queen {
+  background-image: url("../images/pieces/bQ.svg");
+}
