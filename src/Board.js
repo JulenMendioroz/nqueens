@@ -9,11 +9,7 @@ export default class Board {
     this.conf = conf ? conf : new Map()
   }
 
-  init = () => {
-    while (this.element.firstChild){
-      this.element.removeChild(this.element.firstChild)
-    }
-
+  init(){
     for (const i of range(0, this.size ** 2)){
       const rank = this.size - Math.floor(i / this.size)
       const file = i % this.size
@@ -26,15 +22,18 @@ export default class Board {
     this.conf.forEach((pieceType, rankFile) => this.squares.get(rankFile).putPiece(pieceType))
   }
 
-  styleElement = () => {
+  styleElement(){
     this.element.classList.add('board')
     this.element.style.setProperty('--board-dim', this.size)
   }
 
-  render = () => {
+  render(){
+    while (this.element.firstChild){
+      this.element.removeChild(this.element.firstChild)
+    }
     this.styleElement()
-    const boardFragment = new DocumentFragment()
-    this.squares.forEach(square => boardFragment.appendChild(square.element))
-    this.element.appendChild(boardFragment)
+    const fragment = new DocumentFragment()
+    this.squares.forEach(square => fragment.appendChild(square.element))
+    this.element.appendChild(fragment)
   }
 }

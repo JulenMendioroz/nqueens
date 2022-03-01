@@ -6,7 +6,7 @@ export default class NQueensProblem {
     this.queens = this.setQueens()
   }
 
-  setQueens = () => {
+  setQueens(){
     const queens = new Map()
     for (const row of range(0, this.n)){
       queens.set(row, null)
@@ -22,7 +22,7 @@ export default class NQueensProblem {
     return solution
   }
 
-  isSafePosition = (row, col) => {
+  isSafePosition(row, col){
     for (const [r, c] of this.queens){      
       if (c === null) continue
       if (row === r)           return false
@@ -34,7 +34,7 @@ export default class NQueensProblem {
     return true
   }
 
-  canPutQueenInRow = (row) => {
+  canPutQueenInRow(row){
     if (row === this.n) return true
 
     for (const col of range(0, this.n)){
@@ -50,5 +50,7 @@ export default class NQueensProblem {
     return false
   }
 
-  solve = () => this.canPutQueenInRow(0) ? this.solution : false
+  solve(){
+    return this.canPutQueenInRow(0) ? this.solution : false
+  }
 }
